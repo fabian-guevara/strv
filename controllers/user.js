@@ -37,7 +37,7 @@ exports.login = async(req, res) => {
     }
 }
 
-exports.addContact = async(req, res, next) => {
+exports.addContact = async (req, res, next) => {
     const { firstName, lastName, phone, address } = req.body;
     try {
         // create a contact address in a document named after the users _id

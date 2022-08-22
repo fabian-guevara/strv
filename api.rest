@@ -19,7 +19,7 @@ Content-Type: application/json
 ### 
 
 POST http://localhost:3000/user/add-contact
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzAzYjkyODA2ZjI3YzExNmI1ZmQ4MjkiLCJlbWFpbCI6InNvbWV0aGluZ0BnbWFpbC5jb20iLCJpYXQiOjE2NjExODgzOTIsImV4cCI6MTY2MTE5MDE5Mn0.f65svvdjY_579v9PmfgGrtPGyRs4TAPTXGfNSvZJCQI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzAzNmJlYjFlYzZiMmY0Yjg3ZmI4YTUiLCJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpYXQiOjE2NjExOTA0MDcsImV4cCI6MTY2MTE5MjIwN30.3CCmL2ronPs0-ABr7A2n-vBWqSJA9QhtlGPyAGQBZMw
 Content-Type: application/json
 
 {
