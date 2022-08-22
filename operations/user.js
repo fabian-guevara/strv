@@ -4,7 +4,6 @@ const User = require("../models/user");
 const { db } = require("../config/firebase")
 
 const bcrypt = require("bcrypt");
-const logger = require("pino")();
 const jwt = require("jsonwebtoken");
 
 const saltRounds = 12;
@@ -16,16 +15,17 @@ exports.signup = async(email, password) => {
         // check if user exists
         const user = await User.findOne({ email });
         if(!user){
+         //if user does not exist hash password 
          const hashedPassword = await bcrypt.hash(password, saltRounds);
          const newUser = new User({ email, password: hashedPassword})
+         //saving new user to databse
          await newUser.save();
          return newUser;
         }else{
-           return logger.info({err: new Error("Email already in use")});
+         throw new Error("Error while creating new user. Reason: Email already in use.");
         }
-        
      } catch (error) {
-        logger.error(error)
+        console.error(error)
      }
 }
 
