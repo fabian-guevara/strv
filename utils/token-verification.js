@@ -14,6 +14,7 @@ exports.verifyToken = async (req, res, next) => {
     token = token.split(" ")[1];
     try {
         const decoded =  jwt.verify(token, TOKEN_SECRET);
+        req.decodedToken = decoded;
         return next();
     } catch (error) {
         console.error(error.message)
