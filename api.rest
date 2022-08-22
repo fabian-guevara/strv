@@ -2,7 +2,7 @@ POST http://localhost:3000/user/signup
 Content-Type: application/json
 
 {
-    "email": "testemail@gmail.com",
+    "email": "something@gmail.com",
     "password": "password12"
 }
 
@@ -12,18 +12,21 @@ POST http://localhost:3000/user/login
 Content-Type: application/json
 
 {
-    "email": "testemail@gmail.com",
-    "password": "password12"
+    "email": "test@test.com",
+    "password": "password"
 }
 
 ### 
 
 POST http://localhost:3000/user/add-contact
-Authorization: Bearer INSTERT TOKEN HERE AFTER LOGIN
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzAzYjkyODA2ZjI3YzExNmI1ZmQ4MjkiLCJlbWFpbCI6InNvbWV0aGluZ0BnbWFpbC5jb20iLCJpYXQiOjE2NjExODgzOTIsImV4cCI6MTY2MTE5MDE5Mn0.f65svvdjY_579v9PmfgGrtPGyRs4TAPTXGfNSvZJCQI
+Content-Type: application/json
 
 {
-    "firstName": "John", 
-    "lastName": "Doe",
-    "phone": "1234556678",
+    "firstName": "Fabian", 
+    "lastName": "Guevara",
+    "phone": "606390209",
     "address": "Somewhere over the rainbow"
 }
+
+### POST 
