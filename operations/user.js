@@ -42,7 +42,7 @@ exports.login = async(email, password) => {
     }
 }
 
-exports.createContact = async(contactObject) => {
+exports.createContact = async(document, contactObject) => {
    const contactCollection = db.collection("contacts")
-   return await contactCollection.doc(contactObject.firstName).set({contactObject});
+   return await contactCollection.doc(document).set({contactObject});
 }
