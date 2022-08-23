@@ -1,7 +1,7 @@
 # Address Book
 
 RESTful API created to maintain data related to an address book. Two diferent storage services are used
-- MongoDB with Mongoose on top of it.
+- MongoDB 
 - Firebase 
 
 The API was developed using NodeJS, Express and JavaScript as the main tools.
