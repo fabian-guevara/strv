@@ -14,7 +14,7 @@ app.use(express.json());
 require("./config/database").connect();
 
 app.get("/", (req, res) => {
-	res.send("Hello")
+	res.send("I am just an API try posting :)")
 })
 app.use("/user", userRoutes)
 
