@@ -48,7 +48,7 @@ exports.addContact = async (req, res, next) => {
                 return res.status(200).json({ message : "Contact successfully created"})
             }
         }
-        return res.status(400).json({ message: "Something went wrong."})
+        return res.status(400).json({ message: "Incomplete request."})
     } catch (error) {
         console.error(error.message)
     }
