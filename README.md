@@ -30,7 +30,7 @@ This project runs on Node version **16.13.2**.
 	A valid web token will be returned.
 
 	#### users/add-contact
-		"headers" : {  Content-Type: "application/json", Authorization: Bearer TOKEN }
+		"headers" : {  Content-Type: "application/json", Authorization: Bearer HERE_GOES_YOUR_TOKEN }
 				"body" : {
 
 		                  "firstName": "Fabian",
@@ -44,4 +44,6 @@ This project runs on Node version **16.13.2**.
 				}
   
 
+
+Also Examples can be found in the api.rest file provided.
 
