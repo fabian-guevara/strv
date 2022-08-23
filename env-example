@@ -1,0 +1,3 @@
+MONGO_URI=** string ** 
+TOKEN_SECRET=**  string ** 
+FIREBASE_URL=** string **
