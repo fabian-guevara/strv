@@ -14,6 +14,10 @@ exports.signup = async (req, res, next) => {
         if (user) {
             // if user was created successfully go to login.
             next();
+        }else{
+            return res.status(400).json({
+                message: "User already exists"
+            })
         }
     }
     } catch (error) {
