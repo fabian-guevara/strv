@@ -6,7 +6,7 @@ const userRoutes = require("./routes/user");
 
 const app = express();
 
-const port = process.env.port || 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.json());
@@ -30,10 +30,10 @@ app.all('*', (req, res) => {
   });
 
 
-app.listen(port, error => {
+app.listen(PORT, error => {
 	if (error) {
 		console.error(error.message);
 	} else {
-		console.log("App started on port", port);
+		console.log("App started on PORT", PORT);
 	}
 })
