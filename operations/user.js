@@ -5,7 +5,7 @@ const { db } = require("../config/firebase")
 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { getDatabase, ref, set, push } = require("firebase/database");
+const {  ref, push } = require("firebase/database");
 
 const saltRounds = 12;
 const { TOKEN_SECRET } = process.env;
@@ -31,16 +31,23 @@ exports.signup = async(email, password) => {
 }
 
 exports.login = async(email, password) => {
-    const user = await User.findOne({ email });
-    const correctPassword =  bcrypt.compare(password, user.password);
-    if(user && correctPassword){
-      const { _id, email } = user;
-      const token = jwt.sign({ _id, email}, TOKEN_SECRET, { expiresIn: "30m" })
-      user.token = token
-      return user;
-    }else{
-      throw new Error("Authentication Error. Try again.")
-    }
+  try {
+       //check if user exists on database
+      const user = await User.findOne({ email });
+      //compare hashed password to plain text passwod
+      const correctPassword =  bcrypt.compare(password, user.password);
+      if (user && correctPassword){
+         const { _id, email } = user;
+         //sign user with token
+         const token = jwt.sign({ _id, email}, TOKEN_SECRET, { expiresIn: "30m" })
+         user.token = token
+         return user;
+      } else {
+         throw new Error("Authentication Error. Try again.")
+      }
+  } catch (error) {
+   console.error(error.message)
+  }
 }
 
 exports.createContact = async(document, contactObject) => {
