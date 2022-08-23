@@ -5,6 +5,7 @@ const { db } = require("../config/firebase")
 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const { getDatabase, ref, set, push } = require("firebase/database");
 
 const saltRounds = 12;
 const { TOKEN_SECRET } = process.env;
@@ -43,6 +44,8 @@ exports.login = async(email, password) => {
 }
 
 exports.createContact = async(document, contactObject) => {
-   const contactCollection = db.collection("contacts")
-   return await contactCollection.doc(document).set({contactObject});
+   const { firstName, lastName, phone, address } = contactObject;
+   return await push(ref(db, "contacts/" + document), {
+      firstName, lastName, phone, address
+   })
 }

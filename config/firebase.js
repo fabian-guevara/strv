@@ -1,10 +1,23 @@
-const { initializeApp, cert } = require('firebase-admin/app');
-const { getFirestore  } = require('firebase-admin/firestore');
+require("dotenv").config();
+const { FIREBASE_URL } = process.env;
+const { initializeApp } = require("firebase/app") ;
+const { getDatabase } =  require("firebase/database");
 
-const serviceAccount = require('./strv-addressbook-guev-fabian-91589127e97d.json');
 
-initializeApp({
-  credential: cert(serviceAccount)
-});
+// TODO: Replace the following with your app's Firebase project configuration
+// See: https://firebase.google.com/docs/web/learn-more#config-object
 
-exports.db = getFirestore();
+const firebaseConfig = {
+  // ...
+  // The value of `databaseURL` depends on the location of the database
+  databaseURL: FIREBASE_URL,
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+
+// Initialize Realtime Database and get a reference to the service
+const database = getDatabase(app);
+
+exports.db = database;

@@ -25,7 +25,7 @@ exports.signup = async (req, res, next) => {
     }
 }
 
-exports.login = async(req, res) => {
+exports.login = async(req, res, next) => {
     const { email, password } = req.body;
     try{
         if(!email || !password){
@@ -36,6 +36,7 @@ exports.login = async(req, res) => {
             message: "User logged in",
             token: user.token
         })
+        // next();
     }catch(error){
         console.error(error.message)
     }
@@ -44,11 +45,10 @@ exports.login = async(req, res) => {
 exports.addContact = async (req, res, next) => {
     const { firstName, lastName, phone, address } = req.body;
     try {
-        // create a contact address in a document named after the users _id
         const documentName = req.decodedToken._id;
         const createdContact = await userOperations.createContact(documentName, { firstName, lastName, phone, address });
         if(createdContact){
-            res.status(200).send("Contact Successfully created")
+            res.status(200).send("Contact successfully created")
         }
     } catch (error) {
         console.error(error.message)

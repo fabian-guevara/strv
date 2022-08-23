@@ -8,9 +8,9 @@ exports.connect = () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     }).then(() => {
-      console.log("Database connected");
+      console.log("Atlas DB connection established");
     }).catch((error) => {
-      console.log("Connection Failed");
+      console.log("Atlas DB connection Failed");
       console.error(error);
     });
 };
