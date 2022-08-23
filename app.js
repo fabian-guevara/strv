@@ -11,10 +11,24 @@ const port = process.env.port || 3000;
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.json());
 
+require("./config/database").connect();
+
+app.get("/", (req, res) => {
+	res.send("Hello")
+})
 app.use("/user", userRoutes)
 
+app.use((err, req, res, next) => {
+	res.status(400).json(err);
+	next();
+});
 
-require("./config/database").connect();
+app.all('*', (req, res) => {
+    res.status(501).json({
+      message: 'No such endpoint'
+    });
+  });
+
 
 app.listen(port, error => {
 	if (error) {
